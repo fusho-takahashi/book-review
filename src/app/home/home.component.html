@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div>
+  <h1>Book list</h1>
+  <p>{{ message }}</p>
+  <mat-card>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['show', item.isbn]" *ngFor="let item of data">{{ item.title }}</a>
+    </mat-nav-list>
+  </mat-card>
+</div>
