@@ -12,7 +12,7 @@ exports.isbn = functions.https.onCall((data, context) => {
     method: 'GET',
     json: true,
   };
-  request(opt, async (error, response, body) => {
+  request(opt, async (error: any, response: any, body: any) => {
     if (body.item.length === 0) {
       return 'ERR';
     }
