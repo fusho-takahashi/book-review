@@ -1,1 +1,12 @@
-<p>add works!</p>
+<div>
+  <h1>Add book.</h1>
+  <p>{{ message }}</p>
+  <p>DATA: {{ data == null || data.length == 0 ? 'no-data.' : '「' + data.title + '」' }}</p>
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="isbn" (ngModelChange)="getISBN()" placeholder="ISBN" />
+    </mat-form-field>
+    <button [disabled]="data != null || isbn.length != 13" mat-raised-button (click)="add()">Add</button>
+  </div>
+  <mat-divider></mat-divider>
+</div>
