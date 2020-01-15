@@ -1,1 +1,32 @@
-<p>show works!</p>
+<div>
+  <h1>Book data</h1>
+
+  <p>ISBN:{{ isbn }} のデータ</p>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ data.title }}</mat-card-title>
+      <mat-card-subtitle>{{ data.author }} / {{ data.publisher }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ data.desc }}</p>
+      <p>[ published {{ data.published }}. ISBN: {{ isbn }}</p>
+      <div class="bookImgFrame">
+        <a [href]="'https://www.amazon.co.jp/dp/' + data.isbn10 + '/'" target="_target"
+          ><img [src]="'http://books.google.com/books/content?id=' + data.gid + '&printsec=frontcover&img=1&zoom=5'" alt="" class="bookImg"
+        /></a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <p>Comment:</p>
+  <div>
+    <mat-form-field style="width:300px">
+      <textarea matInput="textarea" [(ngModel)]="comment"></textarea>
+    </mat-form-field>
+    <button mat-raised-button (click)="addComment()">Send</button>
+  </div>
+  <mat-card>
+    <mat-list>
+      <div class="listItem" *ngFor="let item of comments">{{ item.comment }} ({{ item.name }})</div>
+    </mat-list>
+  </mat-card>
+</div>
